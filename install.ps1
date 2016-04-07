@@ -1,7 +1,10 @@
 
 if (-not (Test-Path C:\ProgramData\chocolatey\bin\choco.exe)) {
-    choco install vim
+    write-host "This script needs chocolatey to be installed"
+    Exit
 }
+
+choco install vim
 
 if (-not (Test-Path $env:userprofile\_vimrc)) {
     cmd.exe /c mklink $env:userprofile\_vimrc $PSScriptRoot\_vimrc
