@@ -24,7 +24,7 @@ endif
 "==========================================================
 " Trigger pathogen which will itterate through the addon folders. 
 if has('win32') || has('win64')
-  set runtimepath=$USERPROFILE/vimfiles,$VIMRUNTIME,$USERPROFILE/vimfiles/after
+  set runtimepath=$HOME/vimfiles,$VIMRUNTIME,$HOME/vimfiles/after
 endif
 runtime bundle\vim-pathogen\autoload\pathogen.vim
 execute pathogen#infect()
