@@ -46,3 +46,6 @@
 [submodule "vimfiles/bundle/sqlserver.vim"]
 	path = vimfiles/bundle/sqlserver.vim
 	url = https://github.com/vim-scripts/sqlserver.vim.git
+[submodule "vimfiles/bundle/puppet-syntax-vim"]
+	path = vimfiles/bundle/puppet-syntax-vim
+	url = https://github.com/puppetlabs/puppet-syntax-vim.git
