@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim options on Windows 7 
+" Vim options on Windows 10 attempt some linux compatibility
 " 
 " Author: Filip De Vos
-" Last updated: April 15, 2011 
+" Last updated: April 7, 2016 
 "
 " To use this conveniently I work like this: 
 "  - check out the gist in my Git working folder with:
@@ -18,20 +18,16 @@ language messages en_US.UTF-8
 if &compatible
     set nocompatible                   " don't be compatible with vi
 endif
-set nocp
 
 "==========================================================
 " Enable Pathogen the way it should...
 "==========================================================
 " Trigger pathogen which will itterate through the addon folders. 
 if has('win32') || has('win64')
-  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+  set runtimepath=$USERPROFILE/vimfiles,$VIMRUNTIME,$USERPROFILE/vimfiles/after
 endif
 runtime bundle\vim-pathogen\autoload\pathogen.vim
 execute pathogen#infect()
-"silent! call pathogen#helptags()
-"silent! call pathogen#runtime_append_all_bundles()
-"silent! call pathogen#helptags()
 filetype off
 
 "==========================================================
@@ -39,11 +35,14 @@ filetype off
 "==========================================================
 if !exists("syntax_on")
   syntax on
+
 endif
 
-:filetype plugin indent on          " re-enable the filetype plugins.https://www.yammer.com/bpdtechadvisors/groups/sql14tap/uploaded_files
+:filetype plugin indent on          " re-enable the filetype plugins.
 let g:autofenc_enable=1
 
+" use the color scheme
+colorscheme solarized 
 set background=light
 "==========================================================
 " Remappings. 

@@ -23,7 +23,7 @@ set clipboard=unnamed
 
 " shortcuts to get here and reload
 try
-    if has('win32') 
+    if has('win32') || has('win64')
         nmap ,g :e $HOME\_gvimrc<CR>
     else
         nmap ,g :e $HOME\.gvimrc<CR>
@@ -34,16 +34,14 @@ endtry
 " After edit of the _gvimrc file reload it.
 autocmd! bufwritepost gvimrc source $HOME/_gvimrc
 
-" set the font of graphical vim
-if has('win32') 
-    "set guifont=Consolas:h15
-    set guifont=Powerline\ Consolas:h15 " <~ set the font
+" set the font of graphical vimVIM
+if has('win32') || has('win64')
+    set guifont=Consolas:h15
+    "I am struggling to get the powerline patched font to work
+    "set guifont=Powerline\ Consolas:h15 " <~ set the font
     set encoding=utf-8                  " <~ set the encoding
     let g:airline_powerline_fonts=1     " <~ activate the font in airline
 endif
-
-" use the color scheme
-colorscheme solarized 
 
 " Remove menu bar and toolbar
 set guioptions-=m
