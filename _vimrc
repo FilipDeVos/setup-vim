@@ -18,18 +18,21 @@ language messages en_US.UTF-8
 if &compatible
     set nocompatible                   " don't be compatible with vi
 endif
+set nocp
 
 "==========================================================
 " Enable Pathogen the way it should...
 "==========================================================
-filetype off
-
 " Trigger pathogen which will itterate through the addon folders. 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+if has('win32') || has('win64')
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
+runtime bundle\vim-pathogen\autoload\pathogen.vim
 execute pathogen#infect()
 "silent! call pathogen#helptags()
 "silent! call pathogen#runtime_append_all_bundles()
 "silent! call pathogen#helptags()
+filetype off
 
 "==========================================================
 " Switch on syntax highlighting if it wasn't on yet.
