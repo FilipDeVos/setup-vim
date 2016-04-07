@@ -1,0 +1,83 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" options for gvim on Windows 7
+" 
+" Author: Filip De Vos
+" Last updated: 1st April 2010 
+" 
+" To use this conveniently I work like this: 
+"  - check out the gist in my Git working folder with:
+"      cd ~/Documents/WorkingGit/
+"      git clone git://gist.github.com/258688.git vimconfig
+"  - Then create a symbolic link in my home directory to the conf files
+"      ln ~/Documents/WorkingGit/vimconfig/_gvimrc _gvimrc
+"
+" This config uses the zenburn theme which can be downloaded at:
+"     http://www.vim.org/scripts/script.php?script_id=415
+" Once downloaded, move the file to the 
+"     C:\Program Files\vim\vim72\colors\zenburn.vim
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set the default register to the windows clipboard
+set clipboard=unnamed 
+
+" shortcuts to get here and reload
+try
+    if has('win32') 
+        nmap ,g :e $HOME\_gvimrc<CR>
+    else
+        nmap ,g :e $HOME\.gvimrc<CR>
+    endif
+catch
+endtry
+
+" After edit of the _gvimrc file reload it.
+autocmd! bufwritepost gvimrc source $HOME/_gvimrc
+
+" set the font of graphical vim
+if has('win32') 
+    "set guifont=Consolas:h15
+    set guifont=Powerline\ Consolas:h15 " <~ set the font
+    set encoding=utf-8                  " <~ set the encoding
+    let g:airline_powerline_fonts=1     " <~ activate the font in airline
+endif
+
+" use the color scheme
+colorscheme solarized 
+
+" Remove menu bar and toolbar
+set guioptions-=m
+set guioptions-=T
+
+" Hide the mouse pointer when typing
+set mousehide
+
+" make the screen a bit bigger.
+set lines=40
+set columns=120 
+
+" To enable the saving and restoring of screen positions.
+let g:screen_size_restore_pos = 1
+
+" To save and restore screen for each Vim instance.
+" This is useful if you routinely run more than one Vim instance.
+" For all Vim to use the same settings, change this to 0.
+let g:screen_size_by_vim_instance = 1
+
+" Map new tab to Ctrl+n 
+map <C-n> <ESC><ESC>:tabnew<CR>
+
+" Map Ctrl-A to "Select All" (ripped from mswin.vim)
+noremap <C-A> gggH<C-O>G
+inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-A> <C-C>gggH<C-O>G
+onoremap <C-A> <C-C>gggH<C-O>G
+snoremap <C-A> <C-C>gggH<C-O>G
+xnoremap <C-A> <C-C>ggVG
+
+" Open file dialog in a new tab 
+map <F10> :browse tabnew ~\Documents\<CR>
+
+" Map Ctrl+Up to enlarge font and Ctrl+Down to shrink font.
+nnoremap <C-Up> :silent! let &guifont = substitute(&guifont,':h\zs\d\+','\=eval(submatch(0)+1)','')<CR>
+nnoremap <C-Down> :silent! let &guifont = substitute(&guifont,':h\zs\d\+','\=eval(submatch(0)-1)','')<CR>
