@@ -10,4 +10,6 @@ To use this, clone the repository somewhere (and make sure the submodules are al
 - create a symbolic link to \_gvimrc in the %userprofile% folder
 - create a directory link to vimfiles in the %userprofile% folder
 
+My vim config results in a layout like this
 
+![Example of how vim looks with this config](https://raw.githubusercontent.com/filipdevos/setup-vim/master/example.png)
