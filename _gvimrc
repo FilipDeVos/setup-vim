@@ -2,46 +2,36 @@
 " options for gvim on Windows 7
 " 
 " Author: Filip De Vos
-" Last updated: 1st April 2010 
-" 
-" To use this conveniently I work like this: 
-"  - check out the gist in my Git working folder with:
-"      cd ~/Documents/WorkingGit/
-"      git clone git://gist.github.com/258688.git vimconfig
-"  - Then create a symbolic link in my home directory to the conf files
-"      ln ~/Documents/WorkingGit/vimconfig/_gvimrc _gvimrc
-"
-" This config uses the zenburn theme which can be downloaded at:
-"     http://www.vim.org/scripts/script.php?script_id=415
-" Once downloaded, move the file to the 
-"     C:\Program Files\vim\vim72\colors\zenburn.vim
+" Last updated: 15 April 2016 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Set the default register to the windows clipboard
-set clipboard=unnamed 
 
-" shortcuts to get here and reload
 try
     if has('win32') || has('win64')
+        " Set the default register to the windows clipboard
+        set clipboard=unnamed 
+
+        " shortcuts to get here and reload
         nmap ,g :e $HOME\_gvimrc<CR>
+        autocmd! bufwritepost gvimrc source $HOME/_gvimrc
+
+        " set the font of graphical vimVIM
+        set guifont=Consolas:h15 " big font because I am old and blind
+        "I am struggling to get the powerline patched font to work
+        "set guifont=Powerline\ Consolas:h15 " <~ set the font
+        "set encoding=utf-8                  " <~ set the encoding
+        "let g:airline_powerline_fonts=1     " <~ activate the font in airline
+
     else
+        " shortcuts to get here and reload
         nmap ,g :e $HOME\.gvimrc<CR>
+        autocmd! bufwritepost gvimrc source $HOME/.gvimrc
+
+        set guifont=Inconsolata:h15
     endif
 catch
 endtry
-
-" After edit of the _gvimrc file reload it.
-autocmd! bufwritepost gvimrc source $HOME/_gvimrc
-
-" set the font of graphical vimVIM
-if has('win32') || has('win64')
-    set guifont=Consolas:h15
-    "I am struggling to get the powerline patched font to work
-    "set guifont=Powerline\ Consolas:h15 " <~ set the font
-    set encoding=utf-8                  " <~ set the encoding
-    let g:airline_powerline_fonts=1     " <~ activate the font in airline
-endif
 
 " Remove menu bar and toolbar
 set guioptions-=m
@@ -73,8 +63,8 @@ onoremap <C-A> <C-C>gggH<C-O>G
 snoremap <C-A> <C-C>gggH<C-O>G
 xnoremap <C-A> <C-C>ggVG
 
-" Open file dialog in a new tab 
-map <F10> :browse tabnew ~\Documents\<CR>
+" Open file dialog in a new buffer 
+map <F10> :browse enew ~\Documents\<CR>
 
 " Map Ctrl+Up to enlarge font and Ctrl+Down to shrink font.
 nnoremap <C-Up> :silent! let &guifont = substitute(&guifont,':h\zs\d\+','\=eval(submatch(0)+1)','')<CR>
