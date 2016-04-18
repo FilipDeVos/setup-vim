@@ -39,7 +39,7 @@
 	url = https://github.com/hallison/vim-markdown
 [submodule "vimfiles/bundle/vim-msbuild"]
 	path = vimfiles/bundle/vim-msbuild
-	url = https://github.com/heaths/vim-msbuild.git
+	url = https://github.com/FilipDeVos/vim-msbuild.git
 [submodule "vimfiles/bundle/vim-ps1"]
 	path = vimfiles/bundle/vim-ps1
 	url = https://github.com/PProvost/vim-ps1.git
