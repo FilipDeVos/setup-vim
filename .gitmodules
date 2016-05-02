@@ -49,3 +49,6 @@
 [submodule "vimfiles/bundle/puppet-syntax-vim"]
 	path = vimfiles/bundle/puppet-syntax-vim
 	url = https://github.com/puppetlabs/puppet-syntax-vim.git
+[submodule "vimfiles/bundle/vim-editorconfig"]
+	path = vimfiles/bundle/vim-editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git
