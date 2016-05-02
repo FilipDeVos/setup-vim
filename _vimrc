@@ -36,6 +36,15 @@ endif
 " use the color scheme
 colorscheme solarized 
 set background=light
+
+
+"==========================================================
+" Set the editor config executable. 
+"==========================================================
+if has('win32') || has('win64')
+    let g:EditorConfig_exec_path = '~\vimfiles\vim-editorconfigcore\lib\editorconfig.exe'
+endif
+
 "==========================================================
 " Remappings. 
 "==========================================================

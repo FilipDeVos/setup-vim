@@ -52,3 +52,6 @@
 [submodule "vimfiles/bundle/vim-editorconfig"]
 	path = vimfiles/bundle/vim-editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "vimfiles/bundle/vim-editorconfigcore"]
+	path = vimfiles/bundle/vim-editorconfigcore
+	url = https://github.com/FilipDeVos/vim-editorconfigcore-windows.git
