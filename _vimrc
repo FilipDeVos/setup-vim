@@ -42,7 +42,7 @@ set background=light
 " Set the editor config executable. 
 "==========================================================
 if has('win32') || has('win64')
-    let g:EditorConfig_exec_path = '~\vimfiles\vim-editorconfigcore\lib\editorconfig.exe'
+    let g:EditorConfig_exec_path = $HOME.'\vimfiles\bundle\vim-editorconfigcore\lib\editorconfig.exe'
 endif
 
 "==========================================================
