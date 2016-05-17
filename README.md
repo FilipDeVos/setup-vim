@@ -14,4 +14,4 @@ I recommend installing vim from https://github.com/vim/vim-win32-installer/relea
 
 My vim config results in a layout like this
 
-![Example of how vim looks with this config](https://raw.githubusercontent.com/filipdevos/setup-vim/master/example.png)
+![Example of how vim looks with this config](https://raw.githubusercontent.com/FilipDeVos/setup-vim/master/example.png?1)
