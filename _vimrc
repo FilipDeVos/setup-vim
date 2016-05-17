@@ -51,6 +51,10 @@ endif
 let mapleader=","                   " set mapleader to something more convenient
 let g:mapleader=","                 " set mapleader to something more convenient
 
+" traverse virtual lines unless you specify a number.
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
 map <F1> <ESC>                      " Fat fingering escape is annoying and I don't use F1
 map! <F1> <ESC>                     " Fat fingering escape is annoying and I don't use F1   
 nmap <silent> <F2> :set list!<CR>   " Show end of line marker 
