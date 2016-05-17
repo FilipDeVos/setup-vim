@@ -102,6 +102,7 @@ vmap <s-tab> <gv                    " Shift+Tab to unindent in visual mode.
 set vb t_vb=                      " prevent vim from beeping when a command doesn't work
 set shortmess=aIoO                " Working Show short messages, no intro.
 
+" Show airline even if only 1 buffer open
 let g:airline#extensions#tabline#enabled = 1
 
 set tabstop=4

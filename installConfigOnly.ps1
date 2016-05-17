@@ -22,3 +22,16 @@ if (-not (Test-Path $env:userprofile\.vim)) {
 }
 
 Write-Host "Completed creating symlinks to vim config files."
+
+Write-Host "Installing patched Airline fonts."
+
+$shell = New-Object -ComObject Shell.Application
+$fonts = $shell.Namespace(0x14)
+
+Get-ChildItem $PSScriptRoot -i *.ttf, *.otf -Recurse | %{
+    If (!(Test-path "c:\windows\fonts\$($_.Name)")) {
+        Write-Host "Installing font $_.Name"
+        $objFolder.CopyHere($_.Fullname, 4 + 16)
+    }
+}
+Write-Host "Completed installing patched Airline fonts."
