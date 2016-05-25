@@ -2,7 +2,7 @@
 " Vim options on Windows 10 attempt some linux compatibility
 " 
 " Author: Filip De Vos
-" Last updated: April 7, 2016 
+" Last updated: May 25, 2016 
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 language messages en_US.UTF-8 
@@ -33,10 +33,11 @@ endif
 
 :filetype plugin indent on          " re-enable the filetype plugins.
 
+"==========================================================
 " use the color scheme
+"==========================================================
 colorscheme solarized 
 set background=light
-
 
 "==========================================================
 " Set the editor config executable. 
@@ -48,53 +49,44 @@ endif
 "==========================================================
 " Remappings. 
 "==========================================================
-let mapleader=","                   " set mapleader to something more convenient
-let g:mapleader=","                 " set mapleader to something more convenient
+let mapleader=','                   " set mapleader to something more convenient
+let g:mapleader=','                 " set mapleader to something more convenient
 
 " traverse virtual lines unless you specify a number.
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-map <F1> <ESC>                      " Fat fingering escape is annoying and I don't use F1
-map! <F1> <ESC>                     " Fat fingering escape is annoying and I don't use F1   
-nmap <silent> <F2> :set list!<CR>   " Show end of line marker 
+noremap <F1> <ESC>                      " Fat fingering escape is annoying and I don't use F1
+noremap! <F1> <ESC>                     " Fat fingering escape is annoying and I don't use F1   
+noremap <silent> <F2> :set list!<CR>    " Show end of line marker 
+noremap <F5> :buffers<CR>:buffer<Space> " Show buffer menu and pretype selection. my favorite shortkey. 
+noremap <F8> :retab<CR>                 " since I need to retab soo often, a shortkey is handy.
+noremap <F11> :resize -2<CR>            " resize window splits
+noremap <F12> :resize +2<CR>            " resize window splits
 
-" Show buffer menu and pretype selection. my favorite shortkey. 
-:nnoremap <F5> :buffers<CR>:buffer<Space> 
-map <F8> :retab<CR>                 " since I need to retab soo often, a shortkey is handy.
-map <F11> :resize -2<CR>            " resize window splits
-map <F12> :resize +2<CR>            " resize window splits
-map <C-Tab> :bn<CR>                 " Easily go to next buffer.
-map <C-S-Tab> :bp<CR>               " Easily go to previous buffer.
+noremap <C-Tab> :bn<CR>                 " Easily go to next buffer.
+noremap <C-S-Tab> :bp<CR>               " Easily go to previous buffer.
+noremap! <C-Tab> <Esc>:bn<CR>           " Easily go to next buffer in insert and command mode.
+noremap! <C-S-Tab> <Esc>:bp<CR>         " Easily go to previous buffer in insert and command mode.
 
-nmap <leader>s :so $MYVIMRC<CR>     " shortcut to reload config
-nmap <leader>v :e! $MYVIMRC<CR>     " shortcut to load config
-nmap Q gqap                         " use Q for formatting
-nmap <silent> <leader>/ :let @/=""<CR> " shortcut to clear highlighted searches
+noremap <leader>v :e! $MYVIMRC<CR>      " shortcut to load config
+noremap Q gqap                              " use Q for formatting
+noremap <silent> <leader>/ :let @/=""<CR>  " shortcut to clear highlighted searches
 
 " Use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR>                                                                                                                       
-nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
-nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
-nmap <silent> <c-l> :wincmd l<CR>
+noremap <silent> <c-k> :wincmd k<CR>                                                                                                                       
+noremap <silent> <c-j> :wincmd j<CR>                                                                                                                       
+noremap <silent> <c-h> :wincmd h<CR>                                                                                                                       
+noremap <silent> <c-l> :wincmd l<CR>
 
-:nnoremap K i<CR><Esc> " remap K to split a line (J to join a line).
-
-" Replace the word under the cursor
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
-
-" call CtrlP
-:nnoremap <Leader>t :CtrlP<CR><CR>
-
-" Clear the search buffer when hitting return.
-:nnoremap <CR> :nohlsearch<CR>/<BS>       
-
-" let the file searcher look recursive through the path to open a file.
-:nnoremap gf <C-W>gf
+nnoremap K i<CR><Esc>                   " remap K to split a line (J to join a line).
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>  " Replace the word under the cursor
+nnoremap <Leader>t :CtrlP<CR><CR>       " call CtrlP
+nnoremap <CR> :nohlsearch<CR>/<BS>      " Clear the search buffer when hitting return.
+nnoremap gf <C-W>gf                     " let the file searcher look recursive through the path to open a file.
 
 vmap <tab> >gv                      " Tab to indent in visual mode.
 vmap <s-tab> <gv                    " Shift+Tab to unindent in visual mode.
-
 
 "==========================================================
 " Some basic vim fixes.
@@ -105,11 +97,11 @@ set shortmess=aIoO                " Working Show short messages, no intro.
 " Show airline even if only 1 buffer open
 let g:airline#extensions#tabline#enabled = 1
 
+" Note that this gets overruled by .editorconfig
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" Disabling autochdir as its a pita with CtrlP
 set history=1000                  " remember more history
 set undolevels=1000               " remember more undo history
 set nobackup                      " disable backup files. 
