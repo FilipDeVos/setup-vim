@@ -17,10 +17,9 @@ try
         autocmd! bufwritepost gvimrc source $HOME/_gvimrc
 
 
-        " set the font of graphical vim
-        "set guifont=Consolas:h15 " big font because I am old and blind
-        "I am struggling to get the powerline patched font to work
-        set guifont=Fira\ Mono\ for\ Powerline:h13,Consolas:h15
+        "I am struggling to get the consolas powerline patched font to work
+"        set guifont=Consolas:h15
+        set guifont=Sauce\ Code\ Powerline:h13
         set encoding=utf-8                  " <~ set the encoding
         let g:airline_powerline_fonts=1     " <~ activate the font in airline
         if !exists('g:airline_symbols')
