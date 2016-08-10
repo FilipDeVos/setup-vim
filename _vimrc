@@ -31,7 +31,8 @@ if !exists("syntax_on")
   syntax on
 endif
 
-:filetype plugin indent on          " re-enable the filetype plugins.
+" re-enable the filetype plugins.
+:filetype plugin indent on
 
 "==========================================================
 " use the color scheme
@@ -49,29 +50,43 @@ endif
 "==========================================================
 " Remappings. 
 "==========================================================
-let mapleader=','                   " set mapleader to something more convenient
-let g:mapleader=','                 " set mapleader to something more convenient
+" Map the leader character to ,
+let mapleader=','
+let g:mapleader=','
 
 " traverse virtual lines unless you specify a number.
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+" Fat fingering escape is annoying and I don't use F1
+noremap <F1> <ESC>
+" Fat fingering escape is annoying and I don't use F1   
+noremap! <F1> <ESC>
+" Show end of line marker 
+noremap <silent> <F2> :set list!<CR>
+" Show buffer menu and pretype selection. my favorite shortkey. 
+noremap <F5> :buffers<CR>:buffer<Space>
+" since I need to retab soo often, a shortkey is handy.
+noremap <F8> :retab<CR> 
+" resize window splits
+noremap <F11> :resize -2<CR>
+" resize window splits
+noremap <F12> :resize +2<CR>
 
-noremap <F1> <ESC>                      " Fat fingering escape is annoying and I don't use F1
-noremap! <F1> <ESC>                     " Fat fingering escape is annoying and I don't use F1   
-noremap <silent> <F2> :set list!<CR>    " Show end of line marker 
-noremap <F5> :buffers<CR>:buffer<Space> " Show buffer menu and pretype selection. my favorite shortkey. 
-noremap <F8> :retab<CR>                 " since I need to retab soo often, a shortkey is handy.
-noremap <F11> :resize -2<CR>            " resize window splits
-noremap <F12> :resize +2<CR>            " resize window splits
+" Easily go to next buffer.
+noremap <C-Tab> :bn<CR>
+" Easily go to previous buffer.
+noremap <C-S-Tab> :bp<CR>
+" Easily go to next buffer in insert and command mode.
+noremap! <C-Tab> <Esc>:bn<CR>
+" Easily go to previous buffer in insert and command mode.
+noremap! <C-S-Tab> <Esc>:bp<CR>
 
-noremap <C-Tab> :bn<CR>                 " Easily go to next buffer.
-noremap <C-S-Tab> :bp<CR>               " Easily go to previous buffer.
-noremap! <C-Tab> <Esc>:bn<CR>           " Easily go to next buffer in insert and command mode.
-noremap! <C-S-Tab> <Esc>:bp<CR>         " Easily go to previous buffer in insert and command mode.
-
-noremap <leader>v :e! $MYVIMRC<CR>      " shortcut to load config
-noremap Q gqap                              " use Q for formatting
-noremap <silent> <leader>/ :let @/=""<CR>  " shortcut to clear highlighted searches
+" shortcut to load config
+noremap <leader>v :e! $MYVIMRC<CR>
+" use Q for formatting
+noremap Q gqap
+" shortcut to clear highlighted searches
+noremap <silent> <leader>/ :let @/=""<CR>
 
 " Use ctrl-[hjkl] to select the active split!
 noremap <silent> <c-k> :wincmd k<CR>                                                                                                                       
@@ -79,14 +94,21 @@ noremap <silent> <c-j> :wincmd j<CR>
 noremap <silent> <c-h> :wincmd h<CR>                                                                                                                       
 noremap <silent> <c-l> :wincmd l<CR>
 
-nnoremap K i<CR><Esc>                   " remap K to split a line (J to join a line).
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>  " Replace the word under the cursor
-nnoremap <Leader>t :CtrlP<CR><CR>       " call CtrlP
-nnoremap <CR> :nohlsearch<CR>/<BS>      " Clear the search buffer when hitting return.
-nnoremap gf <C-W>gf                     " let the file searcher look recursive through the path to open a file.
+" remap K to split a line (J to join a line).
+nnoremap K i<CR><Esc>
+" Replace the word under the cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+" call CtrlP
+nnoremap <Leader>t :CtrlP<CR><CR>
+" Clear the search buffer when hitting return.
+nnoremap <CR> :nohlsearch<CR>/<BS>
+" let the file searcher look recursive through the path to open a file.
+nnoremap gf <C-W>gf
 
-vmap <tab> >gv                      " Tab to indent in visual mode.
-vmap <s-tab> <gv                    " Shift+Tab to unindent in visual mode.
+" Tab to indent in visual mode.
+vmap <tab> >gv
+" Shift+Tab to unindent in visual mode.
+vmap <s-tab> <gv
 
 "==========================================================
 " Some basic vim fixes.
